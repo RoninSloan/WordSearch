@@ -20,7 +20,7 @@ public class WordSearch{
                 System.out.println("Enter words line by line until you are finished at which point type a single \"q\"");
                 String tok = console.next();
                 ArrayList<String> wordsAR = new ArrayList<String>();
-                while(!tok.equals("q"));{
+                while(!tok.equals("q")){
                     wordsAR.add(tok);
                     tok = console.next();
                 }
