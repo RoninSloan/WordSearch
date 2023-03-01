@@ -20,10 +20,10 @@ public class WordSearch{
                 System.out.println("Enter words line by line until you are finished at which point type a single \"q\"");
                 String tok = console.next();
                 ArrayList<String> wordsAR = new ArrayList<String>();
-                do{
+                while(!tok.equals("q"));{
                     wordsAR.add(tok);
                     tok = console.next();
-                }while(!tok.equals("q"));
+                }
                 String[] words = new String[wordsAR.size()];
                 wordsAR.toArray(words);
                 search.generate(words);
@@ -75,11 +75,11 @@ public class WordSearch{
             w[i] = w[i].toLowerCase();
         }
         this.words = w;
-        char[][] wordChars = setupGrid();
+        char[][] wordChars = setupPlane();
         for(int i = 0 ; i < wordChars.length ; i++){
             placeWord(wordChars, i);
         }
-    fillGrid();
+    fillPlane();
     }
 
     //toString method
@@ -201,7 +201,7 @@ public class WordSearch{
     }
     
     //breaks up string array and adjusts size of plane based on how many words
-    private char[][] setupGrid(){
+    private char[][] setupPlane(){
         char[][] wordChars = new char[words.length][];
         int longest = 8;
         for(int i = 0 ; i < words.length ; i++){
@@ -219,7 +219,7 @@ public class WordSearch{
     }
 
     //fills extra places on plane with random words
-    private void fillGrid(){
+    private void fillPlane(){
         for(int i = 0 ; i < plane.length ; i++){
             for(int x = 0 ; x < plane[i].length ; x++){
                 Random rand = new Random();
